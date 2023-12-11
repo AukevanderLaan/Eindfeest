@@ -4,11 +4,13 @@ version = "0.1.0"
 description = ""
 authors = ["semoussoren <soussoren7@gmail.com>"]
 readme = "README.md"
-packages = [{include = "eindfeest", from = "src"}]
+packages = [{ include = "eindfeest", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 numpy = "^1.26.2"
+pyside6 = "^6.6.1"
+pyqtgraph = "^0.13.3"
 
 
 [build-system]
