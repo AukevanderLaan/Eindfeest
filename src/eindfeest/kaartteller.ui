@@ -52,7 +52,13 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="text_low"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_neutral"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_high"/>
        </item>
       </layout>
      </item>
