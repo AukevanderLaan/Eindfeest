@@ -147,7 +147,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="card_button_11">
+        <widget class="QPushButton" name="card_button_ace">
          <property name="text">
           <string>ace</string>
          </property>

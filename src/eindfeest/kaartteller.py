@@ -144,10 +144,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.card_button_king)
 
-        self.card_button_11 = QPushButton(self.verticalLayoutWidget)
-        self.card_button_11.setObjectName(u"card_button_11")
+        self.card_button_ace = QPushButton(self.verticalLayoutWidget)
+        self.card_button_ace.setObjectName(u"card_button_ace")
 
-        self.horizontalLayout_3.addWidget(self.card_button_11)
+        self.horizontalLayout_3.addWidget(self.card_button_ace)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -216,6 +216,6 @@ class Ui_MainWindow(object):
         self.card_button_jack.setText(QCoreApplication.translate("MainWindow", u"Jack", None))
         self.card_button_queen.setText(QCoreApplication.translate("MainWindow", u"Queen", None))
         self.card_button_king.setText(QCoreApplication.translate("MainWindow", u"King", None))
-        self.card_button_11.setText(QCoreApplication.translate("MainWindow", u"ace", None))
+        self.card_button_ace.setText(QCoreApplication.translate("MainWindow", u"ace", None))
     # retranslateUi
 

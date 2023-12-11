@@ -1,13 +1,18 @@
+@ -1,107 +1,410 @@
 import csv
 import sys
 
 import numpy as np
 import pyqtgraph as pg
 import pyvisa
+from PySide6 import QtWidgets
+from PySide6.QtCore import Slot
 
 from eindfeest.kaartteller import Ui_MainWindow
+from PySide6 import QtWidgets
 
 
+class kansberekening:
 class kansberekening(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -27,6 +32,13 @@ class kansberekening(QtWidgets.QMainWindow):
             self.list_stock.append(32)
             self.list_chance.append(1/13)
 
+        self.ui.low_card_button.clicked.connect(self.low_card)
+        self.ui.neutral_card_button.clicked.connect(self.neutral_card)
+        self.ui.high_card_button.clicked.connect(self.high_card)
+        for i in range(0, 13):
+            self.list_start.append(32)
+            self.list_chance.append(1 / 13)
+
         self.ui.card_button_2.clicked.connect(self.card_2)
         self.ui.card_button_3.clicked.connect(self.card_3)
         self.ui.card_button_4.clicked.connect(self.card_4)
@@ -43,16 +55,24 @@ class kansberekening(QtWidgets.QMainWindow):
         self.ui.reset_button.clicked.connect(self.reset)
         self.show()
 
+    @Slot
     @Slot()
     def total_cards(self):
         for i in range(0, 12):
             self.total_stock += self.list_stock[i]
         return self.total_stock
 
+    @Slot
+    def chance(self, value):
+        p = self.list_stock[value] / self.total_cards()
+        self.list_chance[value] = p
+        return p
+
+    @slot
     @Slot()
     def reset(self):
         for i in range(0, 12):
-            self.list_start[i] = 32
+            self.list_stock[i] = 32
 
     @Slot
     def card_drawn(self, value):
@@ -67,6 +87,58 @@ class kansberekening(QtWidgets.QMainWindow):
         # counting total amount of cards
         for i in range(0,2):
             total += self.list_start[i]
+
+        # calculating chance to get low card
+        chance_low = self.list_start[0] / total
+
+        # updates stock and chance
+        self.ui.text_low.clear()
+        self.ui.text_low.append(f"Aantal lage:{self.list_start[0]}")
+        self.ui.text_low.append(f"Kans op hoog{chance_low}")
+
+
+    @Slot
+    def neutral_card(self):
+        total = 0
+        self.list_start[1] -= 1
+        
+        # counting total amount of cards
+        for i in range(0,2):
+            total += self.list_start[i]
+
+        # calculating chance to get a neutral card
+        chance_neutral = self.list_start[1] / total
+
+        # updates stock and chance
+        self.ui.text_neutral.clear()
+        self.ui.text_neutral.append(f"Aantal middelste{self.list_start[1]}")
+        self.ui.text_neutral.append(f"Kans op hoog{chance_neutral}")
+
+    @slot 
+    def high_card(self):
+        total = 0
+        self.list_start[2] -= 1
+
+        # counting total amount of cards
+        for i in range(0,2):
+            total += self.list_start[i]
+
+        # calculating chance to get a high hard
+        chance_high = self.list_start[2] / total
+
+        # updates stock and chance
+        self.ui.text_high.clear()
+        self.ui.text_high.append(f"Aantal hoge{self.list_start[2]}")
+        self.ui.text_high.append(f"Kans op hoog{chance_high}")
+            self.list_start[i] = 32
+
+    @Slot()
+    def card_2(self):
+        if self.list_start[0] > 0:
+            self.list_start[0] -= 1
+
+            # counting total amount of cards
+            total = self.total_cards()
 
             # calculating chance to get low card
             chance_2 = self.list_start[0] / total
@@ -87,15 +159,21 @@ class kansberekening(QtWidgets.QMainWindow):
             self.ui.text_2.append(f"Aantal lage:{self.list_start[0]}")
             self.ui.text_2.append(f"Kans op laag{chance_2}")
 
+            self.ui.text_3.clear()
+            self.ui.text_3.append(f"Aantal middelste{self.list_start[1]}")
+            self.ui.text_3.append(f"Kans op middelste{chance_3}")
 
-    @Slot
-    def neutral_card(self):
-        total = 0
-        self.list_start[1] -= 1
-        
-        # counting total amount of cards
-        for i in range(0,2):
-            total += self.list_start[i]
+            self.ui.text_4.clear()
+            self.ui.text_4.append(f"Aantal hoge{self.list_start[2]}")
+            self.ui.text_4.append(f"Kans op hoog{chance_4}")
+
+    @Slot()
+    def card_3(self):
+        if self.list_start[1] > 0:
+            self.list_start[1] -= 1
+
+            # counting total amount of cards
+            total = self.total_cards()
 
             # calculating chance to get a neutral card
             chance_2 = self.list_start[0] / total
@@ -115,14 +193,13 @@ class kansberekening(QtWidgets.QMainWindow):
             self.ui.text_4.append(f"Aantal hoge{self.list_start[2]}")
             self.ui.text_4.append(f"Kans op hoog{chance_4}")
 
-    @slot 
-    def high_card(self):
-        total = 0
-        self.list_start[2] -= 1
+    @Slot()
+    def card_4(self):
+        if self.list_start[2] > 0:
+            self.list_start[2] -= 1
 
-        # counting total amount of cards
-        for i in range(0,2):
-            total += self.list_start[i]
+            # counting total amount of cards
+            total = self.total_cards()
 
             # calculating chance to get a high hard
             chance_2 = self.list_start[0] / total
