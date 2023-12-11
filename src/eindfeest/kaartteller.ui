@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>708</width>
-    <height>493</height>
+    <width>792</width>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,33 +17,68 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>10</x>
       <y>10</y>
-      <width>551</width>
-      <height>431</height>
+      <width>771</width>
+      <height>451</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
+      <widget class="QPushButton" name="reset_button">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="low_card_button">
+        <widget class="QPushButton" name="card_button_2">
          <property name="text">
-          <string>Low card (2-6)</string>
+          <string>2</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="neutral_card_button">
+        <widget class="QPushButton" name="card_button_3">
          <property name="text">
-          <string>Neutral card (7-9)</string>
+          <string>3</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="high_card_button">
+        <widget class="QPushButton" name="card_button_4">
          <property name="text">
-          <string>High card (10-ace)</string>
+          <string>4</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_5">
+         <property name="text">
+          <string>5</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_6">
+         <property name="text">
+          <string>6</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_7">
+         <property name="text">
+          <string>7</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_8">
+         <property name="text">
+          <string>8</string>
          </property>
         </widget>
        </item>
@@ -52,13 +87,93 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QTextEdit" name="text_low"/>
+        <widget class="QTextEdit" name="text_2"/>
        </item>
        <item>
-        <widget class="QTextEdit" name="text_neutral"/>
+        <widget class="QTextEdit" name="text_3"/>
        </item>
        <item>
-        <widget class="QTextEdit" name="text_high"/>
+        <widget class="QTextEdit" name="text_4"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_5"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_6"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_7"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_8"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="card_button_9">
+         <property name="text">
+          <string>9</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_10">
+         <property name="text">
+          <string>10</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_jack">
+         <property name="text">
+          <string>Jack</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_queen">
+         <property name="text">
+          <string>Queen</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_king">
+         <property name="text">
+          <string>King</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="card_button_11">
+         <property name="text">
+          <string>ace</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QTextEdit" name="text_9"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_10"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_jack"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_queen"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_king"/>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="text_ace"/>
        </item>
       </layout>
      </item>
@@ -70,7 +185,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>708</width>
+     <width>792</width>
      <height>22</height>
     </rect>
    </property>
