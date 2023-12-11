@@ -1,11 +1,11 @@
 import csv
 import sys
+
 import numpy as np
 import pyqtgraph as pg
-import pyvisa
+from PySide6 import QtWidgets
 
 from eindfeest.kaartteller import Ui_MainWindow
-from PySide6 import QtWidgets
 
 
 class kansberekening:
@@ -16,7 +16,7 @@ class kansberekening:
         self.ui.setupUi(self)
 
         self.list_start = []
-        for i in range(0,2:)
+        for i in range(0, 2):
             self.list_start.append(4)
 
         self.total_stock = 416
@@ -24,7 +24,7 @@ class kansberekening:
         self.list_chance = []
         for i in range(0, 12):
             self.list_stock.append(32)
-            self.list_chance.append(1/13)
+            self.list_chance.append(1 / 13)
 
         self.ui.low_card_button.clicked.connect(self.low_card)
         self.ui.neutral_card_button.clicked.connect(self.neutral_card)
@@ -52,15 +52,14 @@ class kansberekening:
     @Slot
     def card_drawn(self, value):
         self.list_stock[value] -= 1
-        
 
     @Slot
     def low_card(self):
         total = 0
         self.list_start[0] -= 1
-        
+
         # counting total amount of cards
-        for i in range(0,2):
+        for i in range(0, 2):
             total += self.list_start[i]
 
         # calculating chance to get low card
@@ -71,14 +70,13 @@ class kansberekening:
         self.ui.text_low.append(f"Aantal lage:{self.list_start[0]}")
         self.ui.text_low.append(f"Kans op hoog{chance_low}")
 
-
     @Slot
     def neutral_card(self):
         total = 0
         self.list_start[1] -= 1
-        
+
         # counting total amount of cards
-        for i in range(0,2):
+        for i in range(0, 2):
             total += self.list_start[i]
 
         # calculating chance to get a neutral card
@@ -89,13 +87,13 @@ class kansberekening:
         self.ui.text_neutral.append(f"Aantal middelste{self.list_start[1]}")
         self.ui.text_neutral.append(f"Kans op hoog{chance_neutral}")
 
-    @slot 
+    @slot
     def high_card(self):
         total = 0
         self.list_start[2] -= 1
 
         # counting total amount of cards
-        for i in range(0,2):
+        for i in range(0, 2):
             total += self.list_start[i]
 
         # calculating chance to get a high hard
